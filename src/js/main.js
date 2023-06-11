@@ -1,34 +1,34 @@
 'use strict';
 
-const cardsList = document.querySelector('js_cardsList');
+const cardsList = document.querySelector('.js_cardsList');
+console.log(cardsList);
 
+/*
+let cardsFavorite = [];*/
 let cardsListApi = [];
-let cardsFavorite = [];
-let listData;
-const url = 'https://api.disneyapi.dev/character?pageSize=50';
 
-fetch(url)
+const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
+
+fetch(urlApi)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
     cardsListApi = data.data;
-    renderCardsList(listData);
+    renderCardsList(cardsListApi);
   });
 
 function renderCardsList(listData) {
   for (const card of listData) {
-    cardList.innerHTML += renderCard(card);
+    cardsList.innerHTML += renderCard(card);
   }
-  //addEventPalette();
 }
 
 function renderCard(card) {
-  let htmlMain = `<li id ="${card.id}" class= "js_list_card">
-  <h3> ${card.fimls.name}</h3>`;
+  let liCard = `<li id= "${card.id}" class= "licards js_licards"><h3> ${card.name}</h3><div class= "card">`;
 
-  for (const card of card.data) {
-    htmlMain += htmlMain;
+  for (const image of card.imageUrl) {
+    liCard += `<div class="cards_element" style="background:${image}"></div>`;
   }
-  return htmlMain;
-  console.log(renderCard);
+  liCard += `</div></li>`;
+  return liCard;
 }
