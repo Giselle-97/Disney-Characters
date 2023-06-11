@@ -1,14 +1,48 @@
-.text_main {
-  color: blue;
-  line-height: 2.14;
-  font-size: 20px;
+.hero {
+  display: flex;
+  justify-content: center;
+}
+.container_search {
+  background-color: pink;
+  height: 3rem;
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  transform: translateY(-28px);
+}
+.search {
+  border: 1px solid blue;
+  width: 40rem;
+}
+.btnSearch {
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
 }
 .div_main {
   display: flex;
   justify-content: center;
 }
+.text_main {
+  color: blue;
+  line-height: 2.14;
+  font-size: 20px;
+}
 
+.container_cards {
+  background-color: aqua;
+}
+.cardsList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 /*.licards {
+}
+.licards {
   cursor: pointer;
 }
 */

@@ -48,8 +48,8 @@ fetch(urlApi)
 const handleSearch = (event) => {
   event.preventDefault();
   const inputValue = inputSearch.value;
-  const filterList = cardsListApi.filter((item) =>
-    item.name.toLowerCase().includes(inputValue.toLowerCase())
+  const filterList = cardsListApi.filter((card) =>
+    card.name.toLowerCase().includes(inputValue.toLowerCase())
   );
   console.log(filterList);
   renderCardsList(filterList);
