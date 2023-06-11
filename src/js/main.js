@@ -1,6 +1,9 @@
 'use strict';
 
 const cardsList = document.querySelector('.js_cardsList');
+const inputSearch = document.querySelector('.search');
+const btnSearch = document.querySelector('.btnSearch');
+
 console.log(cardsList);
 
 /*
@@ -9,26 +12,46 @@ let cardsListApi = [];
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
+function renderCard(cardsListApi) {
+  cardsList.innerHTML += `
+  <li id="${cardsListApi._id}" class= "licards js_licards">
+  <img src="${cardsListApi.imageUrl}">
+  <h3>"${cardsListApi.name}"</h3>
+  </li>`;
+}
+
+function renderCardsList(cardsListApi) {
+  for (let i = 0; i < cardsListApi.length; i++) {
+    renderCard(cardsListApi[i]);
+  }
+  /*const liCards = document.querySelectorAll('.js_licards');
+  console.log(liCards);*/
+}
+
 fetch(urlApi)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     cardsListApi = data.data;
+    console.log(cardsListApi);
     renderCardsList(cardsListApi);
   });
 
-function renderCardsList(listData) {
-  for (const card of listData) {
-    cardsList.innerHTML += renderCard(card);
-  }
-}
+/*
+  para hacer la lista de favoritos
 
-function renderCard(card) {
-  let liCard = `<li id= "${card.id}" class= "licards js_licards"><h3> ${card.name}</h3><div class= "card">`;
+  const liCards = document.querySelectorAll('.js_licards');
+  console.log(liCards);
+  */
 
-  for (const image of card.imageUrl) {
-    liCard += `<div class="cards_element" style="background:${image}"></div>`;
-  }
-  liCard += `</div></li>`;
-  return liCard;
-}
+//buscador
+
+const handleSearch = (event) => {
+  event.preventDefault();
+  const inputValue = inputSearch.value;
+  const filterList = cardsListApi.filter((item) =>
+    item.name.toLowerCase().includes(inputValue.toLowerCase())
+  );
+  console.log(filterList);
+  renderCardsList(filterList);
+};
+btnSearch.addEventListener('click', handleSearch);
