@@ -1,15 +1,26 @@
 'use strict';
 
-const cardsList = document.querySelector('.js_cardsList');
+let cardsList = document.querySelector('.js_cardsList');
 const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 const btnReset = document.querySelector('.js_btnReset');
+const btnRemoveFav = document.querySelector('.js_btnRemoveFav');
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
-let cardsFavoriteApi = [];
 let cardsListApi = [];
+let cardsFavoriteApi = [];
+
+//localS
+const localStorageFav = JSON.parse(localStorage.getItem('favDisney'));
+favLStorage();
+function favLStorage() {
+  if (localStorageFav) {
+    cardsFavoriteApi = localStorageFav;
+    renderFavoriteList(cardsFavoriteApi);
+  }
+}
 
 fetch(urlApi)
   .then((response) => response.json())
@@ -39,6 +50,7 @@ function renderCard(card) {
   let html = `<li id="${card._id}" class= "licards js_licards">
   <img class="imgCard" src="${card.imageUrl}">
   <h3 class="titleName">"${card.name}"</h3>
+  <button class="btnRemoveFav js_btnRemoveFav">X</button>
   </li>`;
   return html;
 }
@@ -52,6 +64,7 @@ function handleClick(event) {
 
   if (indexCard === -1) {
     cardsFavoriteApi.push(selectedCard);
+    localStorage.setItem('favDisney', JSON.stringify(cardsFavoriteApi));
   } else {
     cardsFavoriteApi.splice(indexCard, 1);
   }
@@ -68,8 +81,12 @@ function renderFavoriteList() {
 //btn reset
 const handleReset = (event) => {
   event.preventDefault();
+  cardsFavoriteApi = [];
+  localStorage.clear();
+  renderFavoriteList();
 };
 btnReset.addEventListener('click', handleReset);
+
 //buscador
 
 const handleSearch = (event) => {
@@ -82,3 +99,12 @@ const handleSearch = (event) => {
   renderCardsList(filterList);
 };
 btnSearch.addEventListener('click', handleSearch);
+
+//btnX
+
+const handleRemoveFav = () => {
+  const id = parseInt(event.currentTarget.id);
+  console.log(id);
+  //cardsFavoriteApi =
+};
+btnRemoveFav.addEventListener('click', handleRemoveFav);

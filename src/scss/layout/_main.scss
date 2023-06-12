@@ -93,6 +93,11 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 5px;
+  li {
+    background-color: violet;
+    justify-content: center;
+  }
 }
 .reset {
   display: flex;
@@ -104,11 +109,20 @@
   border: 1px solid darkmagenta;
   width: 80px;
   border-radius: 20px;
+  transition: all 0.2s;
 }
 .btnReset:hover {
   cursor: pointer;
   color: darkmagenta;
   background-color: #fff;
   box-shadow: 0 4px 20px darkmagenta;
-  transition: all 0.2s ease;
+}
+.cardsList .btnRemoveFav {
+  display: none;
+}
+.btnRemoveFav {
+  color: black;
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+  box-shadow: 8px 4px 4px grey;
 }
