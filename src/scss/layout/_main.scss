@@ -1,39 +1,47 @@
-.hero_div {
+.hero_container {
   display: flex;
   justify-content: center;
 }
-.container_search {
+
+.hero_container-search {
   background-color: pink;
-  height: 3rem;
-  padding: 0 1rem 0 1rem;
+  height: 4rem;
+  width: 45rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   position: relative;
-  transform: translateY(-28px);
+  transform: translateY(-30px);
+  box-shadow: inset;
 }
 .search {
   border: 1px solid blue;
-  width: 40rem;
+  width: 35rem;
 }
 .btnSearch {
   background-color: blue;
   color: white;
   border: 1px solid blue;
 }
-.div_main {
+.main_text {
   display: flex;
   justify-content: center;
 }
-.text_main {
-  color: blue;
+.text_fav {
+  color: blueviolet;
   line-height: 2.14;
   font-size: 20px;
-  padding-top: 2rem;
+}
+.text_characters {
+  line-height: 2.14;
+  font-size: 24px;
+  color: blue;
 }
 
-.container_cards {
+.container_fav {
+  display: flex;
+  flex-direction: column;
 }
 .cardsList {
   display: flex;

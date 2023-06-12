@@ -1,32 +1,14 @@
 'use strict';
 
 const cardsList = document.querySelector('.js_cardsList');
+const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.search');
 const btnSearch = document.querySelector('.btnSearch');
 
-console.log(cardsList);
-
-/*
-let cardsFavorite = [];*/
-let cardsListApi = [];
-
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
-function renderCard(cardsListApi) {
-  cardsList.innerHTML += `
-  <li id="${cardsListApi._id}" class= "licards js_licards">
-  <img src="${cardsListApi.imageUrl}">
-  <h3>"${cardsListApi.name}"</h3>
-  </li>`;
-}
-
-function renderCardsList(cardsListApi) {
-  for (let i = 0; i < cardsListApi.length; i++) {
-    renderCard(cardsListApi[i]);
-  }
-  /*const liCards = document.querySelectorAll('.js_licards');
-  console.log(liCards);*/
-}
+let cardsFavoriteApi = [];
+let cardsListApi = [];
 
 fetch(urlApi)
   .then((response) => response.json())
@@ -36,12 +18,52 @@ fetch(urlApi)
     renderCardsList(cardsListApi);
   });
 
-/*
-  para hacer la lista de favoritos
+function renderCardsList(listData) {
+  cardsList.innerHTML = '';
+  for (const card of listData) {
+    cardsList.innerHTML += renderCard(card);
+  }
+  addEventCard();
+}
 
-  const liCards = document.querySelectorAll('.js_licards');
-  console.log(liCards);
-  */
+function addEventCard() {
+  const liCardList = document.querySelectorAll('.js_licards');
+  for (const liCard of liCardList) {
+    liCard.addEventListener('click', handleClick);
+  }
+}
+
+function renderCard(card) {
+  let html = `<li id="${card.id}" class= "licards js_licards">
+  <img src="${card.imageUrl}">
+  <h3>"${card.name}"</h3>
+  </li>`;
+  return html;
+}
+
+//favoritos
+function handleClick(event) {
+  const id = event.currentTarget.id;
+  const selectedCard = cardsListApi.find((item) => item.id === id);
+  const indexCard = cardsFavoriteApi.findIndex((item) => item.id === id);
+
+  if (indexCard === -1) {
+    cardsFavoriteApi.push(selectedCard);
+  } else {
+    cardsFavoriteApi.splice(indexCard, 1);
+  }
+
+  // en caso que quieras guardar las favoritas, ESTE ES EL MOMENTO CORRECTO
+  console.log(cardsFavoriteApi);
+  renderFavoriteList();
+}
+
+function renderFavoriteList() {
+  ulFavorites.innerHTML = '';
+  for (const fav of cardsFavoriteApi) {
+    ulFavorites.innerHTML += renderCard(fav);
+  }
+}
 
 //buscador
 

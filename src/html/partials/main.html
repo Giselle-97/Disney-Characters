@@ -1,23 +1,29 @@
 <main class="hero">
-  <div class="hero_div">
-    <form class="container_search">
+  <div class="hero_container">
+    <form class="hero_container-search">
       <label for="name">
         <input
           type="text"
           name="name"
           id="name"
           class="search"
-          placeholder="Ej: Olu Mel"
+          placeholder="Example: Olu Mel"
         />
       </label>
-      <input type="submit" class="btnSearch" value="Buscar" />
+      <input type="submit" class="btnSearch" value="Search" />
     </form>
   </div>
-  <div class="div_main">
-    <p class="text_main">
-      Characters <i class="fa-solid fa-heart" style="color: #095cec"></i>
-    </p>
+
+  <div class="main_text">
+    <p class="text_characters">Characters <i class="fa-solid fa-heart"></i></p>
   </div>
+
+  <div class="container_fav">
+    <p class="text_fav">Favorites <i class="fa-solid fa-star"></i></p>
+    <img src="" alt="" />
+    <ul class="js_cardfav"></ul>
+  </div>
+
   <div class="container_cards">
     <ul class="cardsList js_cardsList"></ul>
   </div>
