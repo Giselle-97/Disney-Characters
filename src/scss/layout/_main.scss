@@ -15,7 +15,7 @@
   transform: translateY(-30px);
   box-shadow: inset;
 }
-.search {
+.inputSearch {
   border: 1px solid blue;
   width: 35rem;
 }
@@ -24,20 +24,50 @@
   color: white;
   border: 1px solid blue;
 }
-.main_text {
+
+.heroCard {
   display: flex;
-  justify-content: center;
 }
-.text_fav {
-  color: blueviolet;
-  line-height: 2.14;
-  font-size: 20px;
+.characters {
+  width: 50%;
 }
-.text_characters {
+.characters_text {
   line-height: 2.14;
   font-size: 24px;
   color: blue;
 }
+.favorites {
+  width: 50%;
+}
+.favorites_text {
+  color: blueviolet;
+  line-height: 2.14;
+  font-size: 24px;
+}
+.cardsList {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.licards {
+  padding: 1rem;
+  background-color: azure;
+  //box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 4px 4px grey;
+
+  width: 8rem;
+}
+.imgCard {
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}
+.titleName {
+  text-align: center;
+}
+/*
 
 .container_fav {
   display: flex;
@@ -48,7 +78,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-/*.licards {
+.licards {
 }
 .licards {
   cursor: pointer;

@@ -34,18 +34,20 @@ function addEventCard() {
 }
 
 function renderCard(card) {
-  let html = `<li id="${card.id}" class= "licards js_licards">
-  <img src="${card.imageUrl}">
-  <h3>"${card.name}"</h3>
+  console.log(card);
+  let html = `<li id="${card._id}" class= "licards js_licards">
+  <img class="imgCard" src="${card.imageUrl}">
+  <h3 class="titleName">"${card.name}"</h3>
   </li>`;
   return html;
 }
 
 //favoritos
 function handleClick(event) {
-  const id = event.currentTarget.id;
-  const selectedCard = cardsListApi.find((item) => item.id === id);
-  const indexCard = cardsFavoriteApi.findIndex((item) => item.id === id);
+  const id = parseInt(event.currentTarget.id);
+  console.log(id);
+  const selectedCard = cardsListApi.find((item) => item._id === id);
+  const indexCard = cardsFavoriteApi.findIndex((item) => item._id === id);
 
   if (indexCard === -1) {
     cardsFavoriteApi.push(selectedCard);
