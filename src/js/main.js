@@ -4,6 +4,7 @@ const cardsList = document.querySelector('.js_cardsList');
 const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
+const btnReset = document.querySelector('.js_btnReset');
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
@@ -64,7 +65,11 @@ function renderFavoriteList() {
     ulFavorites.innerHTML += renderCard(fav);
   }
 }
-
+//btn reset
+const handleReset = (event) => {
+  event.preventDefault();
+};
+btnReset.addEventListener('click', handleReset);
 //buscador
 
 const handleSearch = (event) => {

@@ -23,24 +23,42 @@
   background-color: blue;
   color: white;
   border: 1px solid blue;
+  width: 80px;
+  border-radius: 20px;
 }
-
+.btnSearch:hover {
+  cursor: pointer;
+  color: blue;
+  background-color: #fff;
+  box-shadow: 0 4px 20px blue;
+  transition: all 0.2s ease;
+}
 .heroCard {
   display: flex;
+  padding-left: 1rem;
 }
 .characters {
-  width: 75%;
+  width: 70%;
 }
 .characters_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
   line-height: 2.14;
   font-size: 24px;
   color: blue;
 }
 .favorites {
-  width: 25%;
+  width: 30%;
+  justify-content: center;
 }
 .favorites_text {
-  color: blueviolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: darkmagenta;
   line-height: 2.14;
   font-size: 24px;
 }
@@ -57,6 +75,9 @@
   box-shadow: 8px 4px 4px grey;
   width: 8rem;
 }
+.licards:hover {
+  cursor: pointer;
+}
 .imgCard {
   width: 7rem;
   height: 7rem;
@@ -65,21 +86,29 @@
 }
 .titleName {
   text-align: center;
+  padding-top: 0.5rem;
 }
-/*
-
-.container_fav {
+.cardfav {
+  padding-bottom: 1rem;
   display: flex;
-  flex-direction: column;
-}
-.cardsList {
-  display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
-.licards {
+.reset {
+  display: flex;
+  justify-content: center;
 }
-.licards {
+.btnReset {
+  background-color: darkmagenta;
+  color: white;
+  border: 1px solid darkmagenta;
+  width: 80px;
+  border-radius: 20px;
+}
+.btnReset:hover {
   cursor: pointer;
+  color: darkmagenta;
+  background-color: #fff;
+  box-shadow: 0 4px 20px darkmagenta;
+  transition: all 0.2s ease;
 }
-*/
