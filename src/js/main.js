@@ -2,7 +2,7 @@
 
 const cardsList = document.querySelector('.js_cardsList');
 const ulFavorites = document.querySelector('.js_cardfav');
-const inputSearch = document.querySelector('.search');
+const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
@@ -54,8 +54,6 @@ function handleClick(event) {
   } else {
     cardsFavoriteApi.splice(indexCard, 1);
   }
-
-  // en caso que quieras guardar las favoritas, ESTE ES EL MOMENTO CORRECTO
   console.log(cardsFavoriteApi);
   renderFavoriteList();
 }
