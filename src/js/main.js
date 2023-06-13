@@ -5,7 +5,6 @@ const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 const btnReset = document.querySelector('.js_btnReset');
-const btnRemoveFav = document.querySelector('.js_btnRemoveFav');
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
@@ -48,11 +47,36 @@ function addEventCard() {
 function renderCard(card) {
   console.log(card);
   let html = `<li id="${card._id}" class= "licards js_licards">
-  <img class="imgCard" src="${card.imageUrl}">
+  <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
   <h3 class="titleName">"${card.name}"</h3>
-  <button class="btnRemoveFav js_btnRemoveFav">X</button>
+  <button class="btnRemoveFav js_btnRemoveFav"><i class="fa-regular fa-trash-can" style="color: #000205;"></i></button>
   </li>`;
+
+  if (card.imageUrl === undefined) {
+    const imgUrl2 =
+      'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+    html = `<li id="${card._id}" class= "licards js_licards">
+  <img class="imgCard" src="${imgUrl2} alt="Disney Characters">
+  <h3 class="titleName">"${card.name}"</h3>
+  </li>`;
+  }
   return html;
+}
+
+//btnX
+function handleRemoveFav(event) {
+  const id = parseInt(event.currentTarget.id);
+  console.log('hola');
+  const indexCard = cardsFavoriteApi.findIndex((item) => item._id === id);
+  cardsFavoriteApi.splice(indexCard, 1);
+  renderFavoriteList();
+}
+
+function addEventCardFav() {
+  const btnRemoveFav = document.querySelectorAll('.js_btnRemoveFav');
+  for (const btnRemove of btnRemoveFav) {
+    btnRemove.addEventListener('click', handleRemoveFav);
+  }
 }
 
 //favoritos
@@ -77,6 +101,7 @@ function renderFavoriteList() {
   for (const fav of cardsFavoriteApi) {
     ulFavorites.innerHTML += renderCard(fav);
   }
+  addEventCardFav();
 }
 //btn reset
 const handleReset = (event) => {
@@ -99,12 +124,3 @@ const handleSearch = (event) => {
   renderCardsList(filterList);
 };
 btnSearch.addEventListener('click', handleSearch);
-
-//btnX
-
-const handleRemoveFav = () => {
-  const id = parseInt(event.currentTarget.id);
-  console.log(id);
-  //cardsFavoriteApi =
-};
-btnRemoveFav.addEventListener('click', handleRemoveFav);

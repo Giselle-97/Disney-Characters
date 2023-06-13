@@ -1,32 +1,35 @@
-.hero_container {
+.hero__container {
   display: flex;
   justify-content: center;
+
+  &--search {
+    background-color: azure;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    height: 4rem;
+    width: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transform: translateY(-30px);
+  }
 }
 
-.hero_container-search {
-  background-color: azure;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  height: 4rem;
-  width: 45rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  transform: translateY(-30px);
-}
 .inputSearch {
   border: 1px solid blue;
   width: 35rem;
 }
 .btnSearch {
   background-color: blue;
+  font-family: $font-primary;
   color: white;
   border: 1px solid blue;
-  width: 80px;
+  width: 6rem;
   border-radius: 20px;
+  padding: 0.1rem 0 0.2rem 0;
 }
-.btnSearch:hover {
+.btnSearch:hover:active {
   cursor: pointer;
   color: blue;
   background-color: #fff;
@@ -39,30 +42,34 @@
 }
 .characters {
   width: 70%;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-secundary;
+    gap: 0.2rem;
+    line-height: 2.14;
+    font-size: 24px;
+    color: blue;
+  }
 }
-.characters_text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Roboto Slab', serif;
-  gap: 0.2rem;
-  line-height: 2.14;
-  font-size: 24px;
-  color: blue;
-}
+
 .favorites {
   width: 30%;
   justify-content: center;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: darkmagenta;
+    line-height: 2.14;
+    font-size: 24px;
+  }
 }
-.favorites_text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  color: darkmagenta;
-  line-height: 2.14;
-  font-size: 24px;
-}
+
 .cardsList {
   display: flex;
   justify-content: flex-start;
@@ -70,9 +77,9 @@
   gap: 1rem;
 }
 .licards {
-  //cursor: pointer;
+  cursor: pointer;
   padding: 1rem;
-  background-color: darkturquoise;
+  background-color: azure;
   box-shadow: 8px 4px 4px grey;
   width: 8rem;
 }
@@ -88,7 +95,7 @@
 .titleName {
   text-align: center;
   padding-top: 0.5rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
 }
 .cardfav {
   padding-bottom: 1rem;
@@ -97,7 +104,7 @@
   flex-wrap: wrap;
   gap: 10px;
   li {
-    background-color: violet;
+    background-color: pink;
     justify-content: center;
   }
 }
@@ -107,7 +114,7 @@
 }
 .btnReset {
   background-color: darkmagenta;
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
   color: white;
   border: 1px solid darkmagenta;
   width: 5rem;
