@@ -25,7 +25,6 @@ fetch(urlApi)
   .then((response) => response.json())
   .then((data) => {
     cardsListApi = data.data;
-    console.log(cardsListApi);
     renderCardsList(cardsListApi);
   });
 
@@ -45,7 +44,6 @@ function addEventCard() {
 }
 
 function renderCard(card) {
-  console.log(card);
   let html = `<li id="${card._id}" class= "licards js_licards">
   <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
   <h3 class="titleName">"${card.name}"</h3>
@@ -63,10 +61,9 @@ function renderCard(card) {
   return html;
 }
 
-//btnX
+//btn Remove
 function handleRemoveFav(event) {
   const id = parseInt(event.currentTarget.id);
-  console.log('hola');
   const indexCard = cardsFavoriteApi.findIndex((item) => item._id === id);
   cardsFavoriteApi.splice(indexCard, 1);
   renderFavoriteList();
@@ -79,10 +76,9 @@ function addEventCardFav() {
   }
 }
 
-//favoritos
+//favorites
 function handleClick(event) {
   const id = parseInt(event.currentTarget.id);
-  console.log(id);
   const selectedCard = cardsListApi.find((item) => item._id === id);
   const indexCard = cardsFavoriteApi.findIndex((item) => item._id === id);
 
@@ -92,7 +88,6 @@ function handleClick(event) {
   } else {
     cardsFavoriteApi.splice(indexCard, 1);
   }
-  console.log(cardsFavoriteApi);
   renderFavoriteList();
 }
 
@@ -112,15 +107,13 @@ const handleReset = (event) => {
 };
 btnReset.addEventListener('click', handleReset);
 
-//buscador
-
+//search
 const handleSearch = (event) => {
   event.preventDefault();
   const inputValue = inputSearch.value;
   const filterList = cardsListApi.filter((card) =>
     card.name.toLowerCase().includes(inputValue.toLowerCase())
   );
-  console.log(filterList);
   renderCardsList(filterList);
 };
 btnSearch.addEventListener('click', handleSearch);
