@@ -5,6 +5,7 @@ const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 const btnReset = document.querySelector('.js_btnReset');
+const btnLog = document.querySelector('.js_btnLog');
 
 const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
 
@@ -48,6 +49,7 @@ function renderCard(card) {
   console.log(card);
   let html = `<li id="${card._id}" class= "licards js_licards">
   <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
+  <a href= "${card.sourceUrl}">Más info</a>
   <h3 class="titleName">"${card.name}"</h3>
   <button class="btnRemoveFav js_btnRemoveFav"><i class="fa-regular fa-trash-can" style="color: #000205;"></i></button>
   </li>`;
@@ -124,3 +126,11 @@ const handleSearch = (event) => {
   renderCardsList(filterList);
 };
 btnSearch.addEventListener('click', handleSearch);
+
+//boton log
+
+const handleClickLog = (event) => {
+  event.preventDefault();
+  console.log(cardsFavoriteApi.length);
+};
+btnLog.addEventListener('click', handleClickLog);
