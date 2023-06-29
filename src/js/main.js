@@ -99,9 +99,27 @@ function handleClick(event) {
 function renderFavoriteList() {
   ulFavorites.innerHTML = '';
   for (const fav of cardsFavoriteApi) {
-    ulFavorites.innerHTML += renderCard(fav);
+    ulFavorites.innerHTML += renderCardFav(fav);
   }
   addEventCardFav();
+}
+function renderCardFav(card) {
+  console.log(card);
+  let html = `<li id="${card._id}" class= "licards">
+  <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
+  <h3 class="titleName">"${card.name}"</h3>
+  <button class="btnRemoveFav js_btnRemoveFav"><i class="fa-regular fa-trash-can" style="color: #000205;"></i></button>
+  </li>`;
+
+  if (card.imageUrl === undefined) {
+    const imgUrl2 =
+      'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+    html = `<li id="${card._id}" class= "licards">
+  <img class="imgCard" src="${imgUrl2} alt="Disney Characters">
+  <h3 class="titleName">"${card.name}"</h3>
+  </li>`;
+  }
+  return html;
 }
 //btn reset
 const handleReset = (event) => {
