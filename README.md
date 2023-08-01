@@ -1,124 +1,46 @@
-![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
+ <h1 align="center">🏰✨ "Disney Characters" ✨🏰</h1>
+ 
+<p align="center">
+  <img src="https://github.com/Giselle-97/Disney-Characters/assets/131615505/8b7ae291-321e-4945-a961-6ef56c39ae0d" alt="Disney Characters" width="400px">
+</p>
 
-# Adalab web starter kit
+## Descripción🧚‍♂️
 
-Ahoy! Este es nuestro Starter Kit creado en **node y gulp**. ¿Y qué es un Starter kit? Pues es una **plantilla de proyecto con funcionalidades preinstaladas y preconfiguradas**.
+"Disney Characters" es una página web que muestra una serie de personajes de Disney. Los usuarios pueden filtrar la lista de personajes por nombre y añadir sus personajes favoritos a una lista de favoritos. La página se ha desarrollado utilizando HTML, CSS y JavaScript para proporcionar una experiencia interactiva y entretenida a los usuarios.
 
-Este Kit incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit nos ayuda a trabajar más cómodamente, nos automatiza tareas.
+## Funcionalidades✨
 
-En el Kit hay 3 tipos de ficheros y carpetas:
+- 🏰 Mostrar una lista encantadora de personajes de Disney.
+- 🔎 Filtrar la lista de personajes por nombre para encontrar a tus favoritos.
+- ❤️ Añadir personajes a tu lista de favoritos con solo un clic.
+- 🗑️ Eliminar personajes de tu lista de favoritos si ya no son tus elegidos.
+- 💾 Utilizar Local Storage para guardar tus personajes favoritos y mantenerlos incluso después de cerrar el navegador.
+- 🔄 Restablecer fácilmente tu lista de favoritos con el botón "Reset".
 
-- Los ficheros que están sueltos en la raíz del repositorio, como gulpfile.js, package.json... Son la configuración del proyecto y no necesitamos modificarlos.
-- La carpeta `src/`: son los ficheros de nuestra página web, como HTML, CSS, JS...
-- Las carpetas `public/` y `docs/`, que son generadas automáticamente cuando arrancamos el proyecto. El Kit lee los ficheros que hay dentro de `src/`, los procesa y los genera dentro de `public/` y `docs/`.
 
-## Guía de inicio rápido
+## Vista previa🎉
 
-> **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para trabajar con este Starter Kit:
+Puedes acceder a la página web en línea haciendo clic en el siguiente enlace: [Disney Characters - Vista previa](URL_DE_LA_PAGINA_WEB)
 
-### Pasos a seguir cada vez que queremos arrancar un proyecto desde cero:
+## Instrucciones para Empezar la Aventura 🚀
 
-1. **Crea tu propio repositorio.**
-1. Descarga este **Starter kit desde GitHub**.
-   - No recomendamos que clones este repo ya que no podrás añadir commits.
-1. **Copia todos los ficheros** de este Starter kit en la carpeta raíz de tu repositorio.
-   - Recuerda que debes copiar **también los ficheros ocultos**.
-   - Si has decidido clonar este repo, no debes copiar la carpeta `.git`. Si lo haces estarás machacando tu propio repositorio.
-1. **Abre una terminal** en la carpeta raíz de tu repositorio.
-1. **Instala las dependencias** locales ejecutando en la terminal el comando:
+1. 🌟 Una vez que la página esté cargada, descubre la lista de personajes de Disney que te espera.
+2. 🕵️ Utiliza el campo de búsqueda para encontrar rápidamente a tus personajes favoritos.
+3. ❤️ Haz clic en el icono de corazón junto a un personaje para añadirlo a tu lista de favoritos y compartir la magia.
+4. 🗑️ Si decides que un personaje ya no es de tus favoritos, simplemente elimínalo de tu lista con el icono de la papelera.
+5. 🔄 Si quieres empezar una nueva aventura con nuevos personajes favoritos, utiliza el botón "Reset" para restablecer tu lista de favoritos.
 
-```bash
-npm install
-```
 
-### Pasos para arrancar el proyecto:
+## Licencia🧙‍♂️
 
-Una vez hemos instalado las dependencias, vamos a arrancar el proyecto. **El proyecto hay que arrancarlo cada vez que te pongas a programar.** Para ello ejecuta el comando:
+Este proyecto se encuentra bajo la Licencia MIT. Si deseas utilizar o distribuir el contenido de este proyecto, asegúrate de cumplir con los términos de dicha licencia.
 
-```bash
-npm start
-```
+## Crédito🌟
 
-Este comando:
+Desarrollado con ❤️ por: Giselle Castro / [Giselle-97.](https://github.com/Giselle-97)
 
-- **Abre una ventana de Chrome y muestra tu página web**, al igual que hace el plugin de VS Code Live Server (Go live).
-- También **observa** todos los ficheros que hay dentro de la carpeta `src/`, para que cada vez que modifiques un fichero **refresca tu página en Chrome**.
-- También **procesa los ficheros** HTML, SASS / CSS y JS y los **genera y guarda en la carpeta `public/`**. Por ejemplo:
-   - Convierte los ficheros SASS en CSS.
-   - Combina los diferentes ficheros de HTML y los agrupa en uno o varios ficheros HTML.
+## Contacto📞
 
-Después de ejecutar `npm start` ya puedes empezar a editar todos los ficheros que están dentro de la carpeta `src/` y programar cómodamente.
+Si tienes preguntas o comentarios sobre este proyecto, no dudes en ponerte en contacto conmigo a través de mi dirección de correo electrónico: [giselle.cduran@hotmail.com](mailto:giselle.cduran@hotmail.com).
 
-### Pasos para publicar el proyecto en GitHub Pages:
-
-Para generar tu página para producción ejecuta el comando:
-
-```bash
-npm run docs
-```
-
-Y a continuación:
-
-1. Sube a tu repo la carpeta `docs/` que se te acaba de generar.
-1. Entra en la pestaña `settings` de tu repo.
-1. Y en el apartado de GitHub Pages activa la opción **master branch /docs folder**.
-1. Y ya estaría!!!
-
-Además, los comandos:
-
-```bash
-npm run push-docs
-```
-o
-
-```bash
-npm run deploy
-```
-
-son un atajo que nos genera la versión de producción y hace push de la carpeta `docs/` del tirón. Te recomendamos ver el fichero `package.json` para aprender cómo funciona.
-
-## Flujo de archivos con Gulp
-
-Estas tareas de Gulp producen el siguiente flujo de archivos:
-
-![Gulp flow](./gulp-flow.png)
-
-## `gulpfile.js` y `config.json`
-
-Nuestro **gulpfile.js** usa el fichero `config.json` de configuración con las rutas de los archivos a generar / observar.
-
-De esta manera separarmos las acciones que están en `gulpfile.js` de la configuración de las acciones que están en `config.json`.
-
-## Estructura de carpetas
-
-La estructura de carpetas tiene esta pinta:
-
-```
-src
- ├─ api // los ficheros de esta carpeta se copian en public/api/
- |  └─ data.json
- ├─ images
- |  └─ logo.jpg
- ├─ js // los ficheros de esta carpeta se concatenan en el fichero main.js y este se guarda en public/main.js
- |  ├─ main.js
- |  └─ events.js
- ├─ scss
- |  ├─ components
- |  ├─ core
- |  ├─ layout
- |  └─ pages
- └─ html
-    └─ partials
-```
-
-> **NOTA:** Los partials de HTML y SASS del proyecto son orientativos. Te recomendamos usar los que quieras, y borrar los que no uses.
-
-## Vídeotutoriales del Starter kit
-
-- [Qué es, trabajar con la versión de desarrollo y rutas relativas](https://www.youtube.com/watch?v=XwvhXvBijos)
-- [Migración de un proyecto, trabajar con la versión de producción y GitHub Pages](https://www.youtube.com/watch?v=qqGClcgt9Uc)
-- [Motor de plantillas](https://www.youtube.com/watch?v=4GwXOJ045Zg)
-
-## Falta algo?
-
-Echas de menos que el kit haga algo en concreto? Pidelo sin problema a través de las issues o si te animas a mejorarlo mándanos un PR :)
+¡Gracias por unirte a "Disney Characters" y disfrutar de la magia de los personajes de Disney juntos! 🏰✨🐭
