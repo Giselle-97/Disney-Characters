@@ -20,7 +20,7 @@
 
 ## Vista previa🎉
 
-Puedes acceder a la página web en línea haciendo clic en el siguiente enlace: [Disney Characters - Vista previa](URL_DE_LA_PAGINA_WEB)
+Puedes acceder a la página web en línea haciendo clic en el siguiente enlace: [Disney Characters - Vista previa](https://giselle-97.github.io/Disney-Characters/)
 
 ## Instrucciones para Empezar la Aventura 🚀
 
