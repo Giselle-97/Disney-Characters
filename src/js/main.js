@@ -7,8 +7,8 @@ const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 const btnReset = document.querySelector('.js_btnReset');
 
-const urlApi = 'https://api.disneyapi.dev/character?pageSize=50';
-//const urlApi = 'https://dev.adalab.es/api/disney?pageSize=15';
+//const urlApi = 'https://api.disneyapi.dev/character?pageSize=50';
+const urlApi = 'https://dev.adalab.es/api/disney?pageSize=15';
 
 let cardsListApi = [];
 let cardsFavoriteApi = [];
