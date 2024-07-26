@@ -19,16 +19,16 @@
 		"gulp-sourcemaps": "*",
 		"gulp-uglify-es": "^2.0.0",
 		"gulp-zip": "*",
-		"node-sass": "^7.0.3",
+		"node-sass": "^9.0.0",
 		"run-sequence": "*"
 	},
 	"devDependencies": {
 		"lodash.template": ">=4.5.0"
 	},
 	"scripts": {
-		"start": "./node_modules/.bin/gulp",
-		"docs": "rm -rf docs && ./node_modules/.bin/gulp docs",
-		"push-docs": "rm -rf docs && gulp docs && git add docs/* && git commit -m \"Update docs\" && git push",
+		"start": "gulp",
+		"docs": "rmdir /s /q docs && gulp docs",
+		"push-docs": "rmdir /s /q docs && gulp docs && git add docs/* && git commit -m \"Update docs\" && git push",
 		"deploy": "npm run push-docs"
 	},
 	"repository": {

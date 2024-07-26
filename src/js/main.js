@@ -1,17 +1,19 @@
 'use strict';
 
+// Elementos del DOM
 let cardsList = document.querySelector('.js_cardsList');
 const ulFavorites = document.querySelector('.js_cardfav');
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.btnSearch');
 const btnReset = document.querySelector('.js_btnReset');
 
-const urlApi = 'https://api.disneyapi.dev/character?pageSize=15';
+const urlApi = 'https://api.disneyapi.dev/character?pageSize=50';
+//const urlApi = 'https://dev.adalab.es/api/disney?pageSize=15';
 
 let cardsListApi = [];
 let cardsFavoriteApi = [];
 
-//localS
+// Carga favoritos del localStorage
 const localStorageFav = JSON.parse(localStorage.getItem('favDisney'));
 favLStorage();
 function favLStorage() {
@@ -21,6 +23,7 @@ function favLStorage() {
   }
 }
 
+// Fetch de la API
 fetch(urlApi)
   .then((response) => response.json())
   .then((data) => {
@@ -28,6 +31,7 @@ fetch(urlApi)
     renderCardsList(cardsListApi);
   });
 
+// Renderiza la lista de tarjetas
 function renderCardsList(listData) {
   cardsList.innerHTML = '';
   for (const card of listData) {
@@ -36,6 +40,7 @@ function renderCardsList(listData) {
   addEventCard();
 }
 
+// Añade evento click a cada tarjeta
 function addEventCard() {
   const liCardList = document.querySelectorAll('.js_licards');
   for (const liCard of liCardList) {
@@ -43,11 +48,12 @@ function addEventCard() {
   }
 }
 
+// Genera el HTML de una tarjeta
 function renderCard(card) {
   let html = `<li id="${card._id}" class= "licards js_licards">
   <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
   <h3 class="titleName">"${card.name}"</h3>
-  <button class="btnRemoveFav js_btnRemoveFav"><i class="fa-regular fa-trash-can" style="color: #000205;"></i></button>
+  <button class="btnRemoveFav js_btnRemoveFav">Delete</button>
   </li>`;
 
   if (card.imageUrl === undefined) {
@@ -55,14 +61,13 @@ function renderCard(card) {
       'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
     html = `<li id="${card._id}" class= "licards js_licards">
   <img class="imgCard" src="${imgUrl2} alt="Disney Characters">
-  <h3 class="titleName">"${card.name}"</h3>
+  <h3 class="titleName">${card.name}</h3>
   </li>`;
   }
   return html;
 }
 
-//btn Remove
-
+// Maneja el click en el botón de eliminar favorito
 function handleRemoveFav(event) {
   const id = parseInt(event.currentTarget.parentElement.id);
   const indexCard = cardsFavoriteApi.findIndex((item) => item._id === id);
@@ -73,6 +78,7 @@ function handleRemoveFav(event) {
   }
 }
 
+// Añade evento click a los botones de eliminar favorito
 function addEventCardFav() {
   const btnRemoveFav = document.querySelectorAll('.js_btnRemoveFav');
   for (const btnRemove of btnRemoveFav) {
@@ -80,7 +86,7 @@ function addEventCardFav() {
   }
 }
 
-//favorites
+//Favoritos
 function handleClick(event) {
   const id = parseInt(event.currentTarget.id);
   const selectedCard = cardsListApi.find((item) => item._id === id);
@@ -95,6 +101,7 @@ function handleClick(event) {
   renderFavoriteList();
 }
 
+// Renderiza la lista de favoritos
 function renderFavoriteList() {
   ulFavorites.innerHTML = '';
   for (const fav of cardsFavoriteApi) {
@@ -102,7 +109,8 @@ function renderFavoriteList() {
   }
   addEventCardFav();
 }
-//btn reset
+
+// Maneja el reset de favoritos
 const handleReset = (event) => {
   event.preventDefault();
   cardsFavoriteApi = [];
@@ -111,7 +119,7 @@ const handleReset = (event) => {
 };
 btnReset.addEventListener('click', handleReset);
 
-//search
+//Búsqueda
 const handleSearch = (event) => {
   event.preventDefault();
   const inputValue = inputSearch.value;
