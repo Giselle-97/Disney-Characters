@@ -15,13 +15,6 @@ let cardsFavoriteApi = [];
 
 // Carga favoritos del localStorage
 const localStorageFav = JSON.parse(localStorage.getItem('favDisney'));
-favLStorage();
-function favLStorage() {
-  if (localStorageFav) {
-    cardsFavoriteApi = localStorageFav;
-    renderFavoriteList(cardsFavoriteApi);
-  }
-}
 
 // Fetch de la API
 fetch(urlApi)
@@ -29,7 +22,15 @@ fetch(urlApi)
   .then((data) => {
     cardsListApi = data.data;
     renderCardsList(cardsListApi);
+    favLStorage(); // Mueve esto aquí para asegurar que la API ha cargado los datos antes
   });
+
+function favLStorage() {
+  if (localStorageFav) {
+    cardsFavoriteApi = localStorageFav;
+    renderFavoriteList();
+  }
+}
 
 // Renderiza la lista de tarjetas
 function renderCardsList(listData) {
@@ -50,20 +51,16 @@ function addEventCard() {
 
 // Genera el HTML de una tarjeta
 function renderCard(card) {
-  let html = `<li id="${card._id}" class= "licards js_licards">
-  <img class="imgCard" src="${card.imageUrl}" alt="Disney Characters">
-  <h3 class="titleName">"${card.name}"</h3>
-  <button class="btnRemoveFav js_btnRemoveFav">Delete</button>
+  if (!card || !card._id) {
+    return '';
+  }
+
+  let html = `<li id="${card._id}" class="licards js_licards">
+    <img class="imgCard" src="${card.imageUrl || 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney'}" alt="Disney Characters">
+    <h3 class="titleName">${card.name}</h3>
+    <button class="btnRemoveFav js_btnRemoveFav">Delete</button>
   </li>`;
 
-  if (card.imageUrl === undefined) {
-    const imgUrl2 =
-      'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
-    html = `<li id="${card._id}" class= "licards js_licards">
-  <img class="imgCard" src="${imgUrl2} alt="Disney Characters">
-  <h3 class="titleName">${card.name}</h3>
-  </li>`;
-  }
   return html;
 }
 
